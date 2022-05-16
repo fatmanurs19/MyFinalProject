@@ -22,7 +22,6 @@ namespace Core.DataAccess.EntitiyFramework
                 context.SaveChanges();
             }
         }
-
         public void Delete(TEntity entity)
         {
             using (TContext context = new TContext()) //buraya yazılan nesneler using bitince bellekten atar garbage collectore gelir ve bellekten atılır
@@ -32,7 +31,6 @@ namespace Core.DataAccess.EntitiyFramework
                 context.SaveChanges();
             }
         }
-
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
             using (TContext context = new TContext())
@@ -40,12 +38,10 @@ namespace Core.DataAccess.EntitiyFramework
                 return context.Set<TEntity>().SingleOrDefault(filter);
             }
         }
-
         public TEntity Get()
         {
             throw new NotImplementedException();
         }
-
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
             using (TContext context = new TContext())
@@ -56,7 +52,6 @@ namespace Core.DataAccess.EntitiyFramework
 
             }
         }
-
         public void Update(TEntity entity)
         {
             using (TContext context = new TContext()) //buraya yazılan nesneler using bitince bellekten atar garbage collectore gelir ve bellekten atılır
