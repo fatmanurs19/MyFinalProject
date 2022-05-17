@@ -24,6 +24,12 @@ namespace Business.Concrete
 
         public IResult Add(Product product)
         {
+            if (product.ProductName.Length<2)
+            {
+                return new ErrorResult(Messages.ProductNameInvalid);
+            }
+            _productDal.Add(product);
+
             return new SuccessResult(Messages.ProductAdded);
         }
         public IDataResult<List<Product>> GetAll()
